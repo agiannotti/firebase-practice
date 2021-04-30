@@ -29,4 +29,16 @@ export class UserService {
         );
     });
   }
+
+  deleteProduct(product) {
+    return this.db.collection('product-collection').doc(product.id).delete();
+  }
+
+  updateProduct(product: Product, id) {
+    return this.db.collection('product-collection').doc(id).update({
+      name: product.name,
+      description: product.description,
+      imageUrl: product.imageUrl,
+    });
+  }
 }
