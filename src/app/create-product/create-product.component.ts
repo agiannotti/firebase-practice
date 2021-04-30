@@ -24,6 +24,6 @@ export class CreateProductComponent {
 
   onSubmit() {
     this.userService.createProduct(this.productForm.value);
-    this.router.navigate(['list-users']);
+    this.router.navigate(['list-products']);
   }
 }

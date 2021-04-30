@@ -9,8 +9,8 @@ import { ListProductComponent } from './list-product/list-product.component';
 const routes: Routes = [
   { path: '', redirectTo: '/create', pathMatch: 'full' },
   { path: 'create', component: CreateProductComponent },
-  { path: 'list-users', component: ListProductComponent },
-  { path: 'update-user/:id', component: EditProductComponent },
+  { path: 'list-products', component: ListProductComponent },
+  { path: 'update-product/:id', component: EditProductComponent },
 ];
 
 @NgModule({
