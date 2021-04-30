@@ -13,9 +13,6 @@ export class AppComponent {
       .snapshotChanges()
       .subscribe((courses) => {
         this.courses = courses;
-        console.log(this.courses);
       });
   }
-
-  getProduct(id) {}
 }

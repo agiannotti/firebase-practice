@@ -17,8 +17,8 @@ export class CreateProductComponent {
   ) {
     this.productForm = this.formBuilder.group({
       name: [''],
-      email: [''],
-      contact: [''],
+      description: [''],
+      content: [''],
     });
   }
 

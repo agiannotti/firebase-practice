@@ -1,7 +1,10 @@
+import { environment } from './../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
 import { Product } from './product.model';
 
+const baseUrl = `${environment.apiUrl}/users`;
 @Injectable({
   providedIn: 'root',
 })
@@ -14,6 +17,23 @@ export class UserService {
 
   getProductList() {
     return this.db.collection('product-collection').snapshotChanges();
+  }
+
+  getProductId() {
+    // this.db
+    //   .collection<any>('product-collection')
+    //   .snapshotChanges()
+    //   .pipe(
+    //     map((products) => {
+    //       return products.map((e) => {
+    //         const data = e.payload.doc.data();
+    //         const id = e.payload.doc.id;
+    //         console.log('id', id, 'data', data);
+    //         return { id, data };
+    //       });
+    //     })
+    //   )
+    //   .subscribe();
   }
 
   createProduct(product: Product) {
@@ -29,6 +49,9 @@ export class UserService {
         );
     });
   }
+  getById(id: string) {
+    return this.http.get<Product>(`${baseUrl}/${id}`);
+  }
 
   deleteProduct(product) {
     return this.db.collection('product-collection').doc(product.id).delete();
@@ -38,7 +61,7 @@ export class UserService {
     return this.db.collection('product-collection').doc(id).update({
       name: product.name,
       description: product.description,
-      imageUrl: product.imageUrl,
+      content: product.content,
     });
   }
 }

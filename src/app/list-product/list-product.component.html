@@ -3,21 +3,20 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Contact</th>
-      <th scope="col">Action</th>
+      <th scope="col">description</th>
+      <th scope="col">Content</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products; let i = index">
+    <tr *ngFor="let p of Products; let i = index">
       <th scope="row">{{ i + 1 }}</th>
-      <td>{{ product.name }}</td>
-      <td>{{ product.email }}</td>
-      <td>{{ product.contact }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.description }}</td>
+      <td>{{ p.content }}</td>
       <td>
         <span (click)="removeProduct(product)" class="text-danger">Delete</span>
         &nbsp;
-        <span routerLink="/update-product/{{ product.id }}" class="text-primary"
+        <span routerLink="/update-product/{{ p.id }}" class="text-primary"
           >Edit</span
         >
       </td>
