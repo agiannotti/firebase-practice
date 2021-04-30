@@ -10,10 +10,12 @@ export class AppComponent {
   courses: any;
   constructor(db: AngularFireDatabase) {
     db.list('/courses')
-      .valueChanges()
+      .snapshotChanges()
       .subscribe((courses) => {
         this.courses = courses;
         console.log(this.courses);
       });
   }
+
+  getProduct(id) {}
 }
